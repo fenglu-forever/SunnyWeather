@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SunnyWheather</string>
+    <string name="server_exception">获取数据失败，服务器异常！</string>
+    <string name="server_response_failed">获取数据失败，服务器响应错误！</string>
+    <string name="input_address">输入地址</string>
+    <string name="ok">确定</string>
+    <string name="loading_msg">正在加载...</string>
+    <string name="input_not_empty_tips">输入内容不能为空！</string>
+</resources>
