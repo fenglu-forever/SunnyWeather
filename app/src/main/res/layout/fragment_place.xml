@@ -18,11 +18,19 @@
         android:background="@color/colorPrimary"
         android:gravity="center_vertical">
 
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="12dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_back_left_arrow" />
+
         <EditText
             android:id="@+id/searchPlaceEdit"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:background="@drawable/search_bg"
             android:hint="@string/input_address"
@@ -36,7 +44,7 @@
             android:layout_margin="12dp"
             android:padding="4dp"
             android:text="@string/ok"
-            android:textColor="@android:color/white"
+            android:textColor="@color/selector_enable_white"
             android:textSize="18sp" />
     </LinearLayout>
 

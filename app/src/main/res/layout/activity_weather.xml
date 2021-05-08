@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshWeatherLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/weatherLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/layout_realtime" />
+
+                <include layout="@layout/layout_daily" />
+
+                <include layout="@layout/layout_life_index" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <FrameLayout
+        android:id="@+id/placeFgContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:fitsSystemWindows="true"
+        android:focusable="true">
+
+        <fragment
+            android:id="@+id/placeFragment"
+            android:name="com.luyuanyuan.sunnyweather.view.fragment.PlaceFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="PlaceFragment" />
+    </FrameLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

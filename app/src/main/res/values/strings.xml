@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SunnyWheather</string>
+    <string name="app_name">天气精灵</string>
     <string name="server_exception">获取数据失败，服务器异常！</string>
     <string name="server_response_failed">获取数据失败，服务器响应错误！</string>
     <string name="input_address">输入地址</string>

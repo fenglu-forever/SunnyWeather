@@ -10,27 +10,25 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-class HttpManager {
-    suspend fun <T> Call<T>.await(): T {
-        return suspendCoroutine { continuation ->
-            enqueue(object : Callback<T> {
-                override fun onFailure(call: Call<T>, t: Throwable) {
-                    continuation.resumeWithException(t)
-                }
+suspend fun <T> Call<T>.requestNetwork(): T {
+    return suspendCoroutine { continuation ->
+        enqueue(object : Callback<T> {
+            override fun onFailure(call: Call<T>, t: Throwable) {
+                continuation.resumeWithException(t)
+            }
 
-                override fun onResponse(call: Call<T>, response: Response<T>) {
-                    val body = response.body()
-                    if (body != null) continuation.resume(body)
-                    else continuation.resumeWithException(
-                        IOException(
-                            WeatherApp
-                                .getAppContext()
-                                .resources
-                                .getString(R.string.server_exception)
-                        )
+            override fun onResponse(call: Call<T>, response: Response<T>) {
+                val body = response.body()
+                if (body != null) continuation.resume(body)
+                else continuation.resumeWithException(
+                    IOException(
+                        WeatherApp
+                            .getAppContext()
+                            .resources
+                            .getString(R.string.server_exception)
                     )
-                }
-            })
-        }
+                )
+            }
+        })
     }
 }
